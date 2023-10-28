@@ -1,0 +1,20 @@
+<table border="3">
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>description</td>
+        <td>Action</td>
+        
+    </tr>
+    {% for c in cars %}
+    <tr>
+        <td>{{c.id}}</td>
+        <td>{{c.name | upper}}</td>
+        <td>{{c.description}}</td>
+
+      
+        <td><a href="{{path('editcar',{'id':c.id})}}">edit</a></td>
+        <td><a href="{{path('deletcar',{'id':c.id})}}">delete</a></td>
+    </tr>
+    {% endfor %}
+</table>

@@ -1,0 +1,20 @@
+{% block content %}
+    <h1>Liste des auteurs par ordre alphabétique des adresses email</h1>
+    <table border="">
+        <thead>
+            <tr>
+                <th>username</th>
+                <th>Email</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for author in authors %}
+                <tr>
+                    <td>{{ author.username }}</td>
+                    <td>{{ author.email }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

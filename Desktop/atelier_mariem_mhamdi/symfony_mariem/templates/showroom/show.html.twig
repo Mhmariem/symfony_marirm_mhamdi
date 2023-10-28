@@ -1,0 +1,18 @@
+<table border="3">
+    <tr>
+        <td>id</td>
+        <td>title</td>
+        
+        <td>Action</td>
+        
+    </tr>
+    {% for s in form %}
+    <tr>
+        <td>{{s.id}}</td>
+        <td>{{s.title | upper}}</td>
+      
+        <td><a href="{{path('editshow',{'id':s.id})}}">edit</a></td>
+    
+    </tr>
+    {% endfor %}
+</table>
