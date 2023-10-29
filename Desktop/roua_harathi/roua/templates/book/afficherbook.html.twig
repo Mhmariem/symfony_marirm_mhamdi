@@ -1,0 +1,38 @@
+<h1> List of books </h1>
+<form action="{{ path('searchbook') }}" method="GET">
+    <input type="text" name="ref" placeholder="Rechercher par référence">
+    <button type="submit">search</button>
+</form>
+<table border="3">
+
+    <tr>
+        <td>ref</td>
+        <td>title</td>
+        <td>author</td>
+        <td>publication date</td>
+         <td>published </td>
+         <td>category</td>
+        
+          <td>Action</td>
+        
+    </tr>
+    {% for b in books %}
+    <tr>
+        <td>{{b.ref}}</td>
+        <td>{{b.title }}</td>
+        <td>{{b.author.username}}</td>
+        <td>{{b.publicationdate|date('Y-m-d')}}</td>
+         <td>{{b.published }}</td>
+         <td>{{b.category }}</td>
+         <td>
+            <a href="{{path('editbook',{'ref':b.ref})}}">edit</a>
+            <a href="{{path('deletebook',{'ref':b.ref})}}">delete</a>
+           <a href="{{path('afficherbook',{'ref':b.ref})}}">show</a>
+        </td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+

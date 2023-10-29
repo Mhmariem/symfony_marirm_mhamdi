@@ -1,0 +1,29 @@
+ <h1>liste des authors</h1>
+ <p><h3>Search author by number of books</h3></p>
+ <form action="{{ path('searchAuthorsByBook') }}" method="GET">
+    <input type="number" name="minCount" placeholder="Nombre minimum de livres">
+    <input type="number" name="maxCount" placeholder="Nombre maximum de livres">
+    <button type="submit">Rechercher</button>
+<table border="3">
+    <tr>
+        <td>id</td>
+        <td>username</td>
+        <td>email</td>
+        <td>nb_Book</td>
+        <td>Action</td>
+        
+    </tr>
+    {% for a in authors %}
+    <tr>
+        <td>{{a.id}}</td>
+        <td>{{a.username | upper}}</td>
+        <td>{{a.email}}</td>
+        <td>{{a.nb_Book}}</td>
+
+        <td>
+        <a href="{{path('editauthor',{'id':a.id})}}">edit</a>
+        <a href="{{path('deleteauthor',{'id':a.id})}}">delete</a>
+       </td>
+    </tr>
+    {% endfor %}
+</table>
